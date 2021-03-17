@@ -2,16 +2,27 @@
 #include "Planet.h"
 #include "Stormtrooper.h"
 #include "Jedi.h"
-#include <Jedi.cpp>
 
 
 int main()
 {
-	Planet fst("Earth", "Dominac", "Tangiers");
+	Planet fst("Earth", "Dominac", "Tangiers", Chthonian_planet);
+	Jedi firstJed("Ivan", Padawan, 10.31, fst, "Athletic ", "frontLiner");
+	Stormtrooper firstTroop("184293", Patroltrooper, "fighter", fst);
 
-	Jedi firstJed("Ivan", B, 10.31, fst, "Athletic ", "frontLiner");
-	Stormtrooper firstTroop("184293", C, "fighter", fst);
-	firstJed.print();
-	firstJed.getPlanet().print();
+	print(fst); 
+	std::cout << std::endl;
+	print(firstTroop);
+	std::cout << std::endl;
+	print(firstJed);
+    std::cout << std::endl;
+
+	Stormtrooper secondTroop;
+	std::cin >> secondTroop;
+	print(secondTroop);
+	std::cout << std::endl;
+
+	Jedi secondJedi;
+	getUserInput(secondJedi);
+	print(secondJedi);
 }
-
