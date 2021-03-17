@@ -1,35 +1,38 @@
 #pragma once
 #include "Planet.h"
-enum Rank { A, B, C, D };
+enum jediRank { Youngling, Padawan, Master, Grand_Master };
 
 
 class Jedi {
 private:
 	char* name;
-	Rank rank;
+	jediRank rank;
 	double midichlorian;
 	Planet planet;
 	char* spicies;
 	char* militaryRank;
 public:
 	Jedi();
-	Jedi(const char*, Rank, double, Planet, const char*, const char*);
+	Jedi(const char*, jediRank, double, Planet, const char*, const char*);
 	Jedi(Jedi& other);
 	~Jedi();
 	Jedi& operator = (const Jedi&);
+	
 
 	void print();
-	char* getName();
-	Rank getRank();
-	double getMidichlorian();
+	char* getName()const;
+	jediRank getRank()const;
+	double getMidichlorian()const;
 	Planet getPlanet();
-	char* getSpicies();
-	char* getMilitaryRank();
+	char* getSpicies()const;
+	char* getMilitaryRank()const;
 	void setName(const char*);
-	void setRank(Rank);
+	void setRank(jediRank);
 	void setMidichlorian(double);
 	void setPlanet(Planet);
 	void setSpicies(const char*);
 	void setMilitaryRank(const char*);
 
+	friend std::ostream& operator<< (std::ostream&, const Jedi&);
+	friend std::istream& operator>> (std::istream&, Jedi&);
 };
